@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:01 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/26 08:13:40 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/28 19:32:40 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@
 # define ERR_START		16
 # define ERR_EXIT		32
 # define ERR_SYMBOLS	64
+
+# define KEY_UP		13
+# define KEY_DOWN	1
+# define KEY_LEFT	0
+# define KEY_RIGHT	2
+# define KEY_ESC	53
 
 typedef struct s_point
 {

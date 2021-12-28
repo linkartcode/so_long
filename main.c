@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:47:32 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/26 09:09:37 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/26 20:31:36 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ void	print_map(t_map *map)
 
 	i = 0;
 	printf("Map width - %zu, height - %zu\n", map->width, map->height);
-	//printf("Start pos at x = %zu, y = %zu\n", map->player.x, map->player.y);
-	//printf("Finish pos at x = %zu, y = %zu\n", map->exit.x, map->exit.y);
 	printf("Items to collect = %d\n", map->items_num);
 	while (map->map_chars[i])
 	{
@@ -99,6 +97,8 @@ int	main(int argc, char **argv)
 {
 	int		fd;
 	t_map	*map;
+	void	*mlx;
+	void	*mlx_win;
 
 	if (argc != 2)
 		error_exit ("Program accept only one *.ber parameter");
@@ -116,5 +116,8 @@ int	main(int argc, char **argv)
 		game(map);
 	game_over(end_game(map)); */
 	free_map(map);
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1024, 768, "Hello world!");
+	mlx_loop(mlx);
 	//sleep(10000);
 }
