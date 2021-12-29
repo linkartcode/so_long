@@ -6,7 +6,7 @@
 #    By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 22:47:06 by nmordeka          #+#    #+#              #
-#    Updated: 2021/12/26 00:21:16 by nmordeka         ###   ########.fr        #
+#    Updated: 2021/12/29 19:42:50 by nmordeka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ LIBFT 		= libft.a
 #
 LIBS_PATH	= ./libs
 #
-SRCS		= main.c check_map.c pars_map.c
+SRCS		= 	main.c		check_map.c		pars_map.c		sprite_tools.c \
+				game.c		exit_tools.c	move_tools.c \
+				
 #
 HEADER		=	so_long.h
 OBJ			=	$(patsubst %.c, %.o, $(SRCS))

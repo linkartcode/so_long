@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:01 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/29 08:42:35 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/29 19:54:22 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <string.h>
 # include <stdio.h>
 
-# define START_POS	'P'
-# define EXIT_POS	'E'
-# define COLLECT	'C'
-# define WALL		'1'
-# define EMPTY		'0'
+# define START_POS		'P'
+# define EXIT_POS		'E'
+# define COLLECT		'C'
+# define WALL			'1'
+# define EMPTY			'0'
 
 # define ERR_SHAPE		1
 # define ERR_SIZE		2
@@ -32,11 +32,13 @@
 # define ERR_EXIT		32
 # define ERR_SYMBOLS	64
 
-# define KEY_UP		13
-# define KEY_DOWN	1
-# define KEY_LEFT	0
-# define KEY_RIGHT	2
-# define KEY_ESC	53
+# define KEY_UP			13
+# define KEY_DOWN		1
+# define KEY_LEFT		0
+# define KEY_RIGHT		2
+# define KEY_ESC		53
+
+# define IMG_SIZE		64
 
 typedef struct s_point
 {
@@ -54,17 +56,42 @@ typedef struct s_map
 	char	**map_chars;
 }	t_map;
 
+typedef struct s_sprite
+{
+	char	map_index;
+	int		w;
+	int		h;
+	void	*img_data;
+}	t_sprite;
+
+typedef struct s_items
+{
+	t_sprite	*empty;
+	t_sprite	*wall;
+	t_sprite	*player;
+	t_sprite	*exit;
+	t_sprite	*collect;
+}	t_items;
+
 typedef struct s_game
 {
 	t_map	*map;
-	size_t  steps;
+	size_t	steps;
 	void	*mlx;
 	void	*win;
+	t_items	*sprites;
 }	t_game;
 
 t_map	*read_map(int fd);
 void	check_map(t_map *map);
 void	free_map(t_map *map);
+void	free_items(t_items *items, void *mlx);
 void	error_exit(char	*err_message);
+int		game_exit(int exit_code, t_game *game);
+t_items	*read_sprites(t_game *game);
+int		player_move(int key, t_map *map);
+void	game_go(t_map *map);
+void	print_map(t_map *map);
+void	print_steps(int steps);
 
 #endif
