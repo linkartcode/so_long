@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:01 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/28 19:32:40 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/29 08:42:35 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,14 @@ typedef struct s_map
 	int		items_num;
 	char	**map_chars;
 }	t_map;
+
+typedef struct s_game
+{
+	t_map	*map;
+	size_t  steps;
+	void	*mlx;
+	void	*win;
+}	t_game;
 
 t_map	*read_map(int fd);
 void	check_map(t_map *map);
