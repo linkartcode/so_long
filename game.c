@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 19:42:17 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/29 19:47:30 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 07:19:50 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_game	*game_init(t_map *map)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		game_exit(1, game);
-	game->win = mlx_new_window(game->mlx, 1024, 768, "so_long");
+	game->win = mlx_new_window(game->mlx, WIN_W_PIX, WIN_H_PIX, "so_long");
 	if (!game->win)
 		game_exit(2, game);
 	game->sprites = read_sprites(game);
@@ -51,7 +51,6 @@ static int	key_hook(int key, t_game *game)
 		mlx_destroy_window(game->mlx, game->win);
 		game_exit(10, game);
 	}
-	printf ("Keycode - %d\n", key);
 	if (key == KEY_DOWN || key == KEY_UP || key == KEY_LEFT || key == KEY_RIGHT)
 	{
 		if (player_move(key, game->map))
@@ -60,7 +59,6 @@ static int	key_hook(int key, t_game *game)
 			if (game_over(game->map))
 				game_exit(0, game);
 		}
-		print_map(game->map);
 	}
 	return (0);
 }
@@ -76,8 +74,8 @@ void	game_go(t_map *map)
 	t_game	*game;
 
 	game = game_init(map);
-	print_map(game->map);
 	mlx_hook(game->win, 17, 0, close_win_hook, game);
 	mlx_key_hook(game->win, key_hook, game);
+	mlx_loop_hook(game->mlx, print_sprite_map, game);
 	mlx_loop(game->mlx);
 }

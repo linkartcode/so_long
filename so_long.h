@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:01 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/29 19:54:22 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 07:33:21 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define KEY_ESC		53
 
 # define IMG_SIZE		64
+# define WIN_W_PIX		1024
+# define WIN_H_PIX		768
 
 typedef struct s_point
 {
@@ -91,7 +93,7 @@ int		game_exit(int exit_code, t_game *game);
 t_items	*read_sprites(t_game *game);
 int		player_move(int key, t_map *map);
 void	game_go(t_map *map);
-void	print_map(t_map *map);
+int		print_sprite_map(t_game	*game);
 void	print_steps(int steps);
 
 #endif

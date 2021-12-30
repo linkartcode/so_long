@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:47:32 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/29 19:46:30 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 07:04:42 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,6 @@ static int	not_ber_ext(char *filename)
 	result = ft_strncmp(ext, ".ber", 4);
 	free(ext);
 	return (result);
-}
-
-void	print_map(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	printf("Map width - %zu, height - %zu\n", map->width, map->height);
-	printf("Items to collect = %d\n", map->items_num);
-	while (map->map_chars[i])
-	{
-		ft_putendl_fd(map->map_chars[i], 1);
-		i++;
-	}
-}
-
-void	print_steps(int steps)
-{
-	printf("steps made - %d\n", steps);
 }
 
 int	main(int argc, char **argv)
