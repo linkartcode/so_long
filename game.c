@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 19:42:17 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/30 07:19:50 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 08:02:38 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_game	*game_init(t_map *map)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		game_exit(1, game);
-	game->win = mlx_new_window(game->mlx, WIN_W_PIX, WIN_H_PIX, "so_long");
+	game->win = mlx_new_window(game->mlx, WIN_W, WIN_H, "so_long");
 	if (!game->win)
 		game_exit(2, game);
 	game->sprites = read_sprites(game);

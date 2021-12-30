@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:01 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/30 07:33:21 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 09:44:24 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,21 @@
 # define KEY_ESC		53
 
 # define IMG_SIZE		64
-# define WIN_W_PIX		1024
-# define WIN_H_PIX		768
+# define WIN_W			1024
+# define WIN_H			768
 
 typedef struct s_point
 {
 	size_t	x;
 	size_t	y;
 }	t_point;
+
+typedef struct s_rect
+{
+	t_point	base;
+	size_t	w;
+	size_t	h;
+}	t_rect;
 
 typedef struct s_map
 {
