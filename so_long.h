@@ -6,17 +6,16 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:01 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/30 09:44:24 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/31 16:45:38 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./libs/libft.h"
+# include "./lib/libft.h"
 # include <mlx.h>
 # include <string.h>
-# include <stdio.h>
 
 # define START_POS		'P'
 # define EXIT_POS		'E'

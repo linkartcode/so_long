@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 23:03:49 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/26 08:28:16 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 21:07:20 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ void	check_map(t_map *map)
 			error_exit("Map must have one start position.");
 		if ((valid_code & ERR_EXIT) == ERR_EXIT)
 			error_exit("Map must have one exit.");
-		error_exit("Map have invalid symbols");
+		error_exit("Map has invalid symbols");
 	}
 }

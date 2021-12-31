@@ -6,14 +6,14 @@
 #    By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 22:47:06 by nmordeka          #+#    #+#              #
-#    Updated: 2021/12/30 06:44:26 by nmordeka         ###   ########.fr        #
+#    Updated: 2021/12/31 16:39:45 by nmordeka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
 LIBFT 		= libft.a
 #
-LIBS_PATH	= ./libs
+LIBS_PATH	= ./lib
 #
 SRCS		= 	main.c		check_map.c		pars_map.c		sprite_tools.c \
 				game.c		exit_tools.c	move_tools.c 	print_tools.c 

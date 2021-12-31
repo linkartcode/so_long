@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 06:43:29 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/30 12:13:58 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 20:47:18 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	*get_img_ptr(char ch, t_game *game)
 	return (img);
 }
 
-void	print_win(t_rect win, t_game *game)
+static void	print_win(t_rect win, t_game *game)
 {
 	size_t	x;
 	size_t	y;
@@ -50,16 +50,16 @@ void	print_win(t_rect win, t_game *game)
 	}
 }
 
-void	set_win_pos(size_t *pos, size_t *length, size_t p_pos, size_t w_wide)
+static void	set_win_pos(size_t *pos, size_t *len, size_t p_pos, size_t w_wide)
 {
 	size_t	wide_max;
 
-	wide_max = *length;
+	wide_max = *len;
 	*pos = p_pos - 1;
 	while ((int)*pos >= 0 && p_pos - (*pos) <= w_wide / 2)
 		(*pos)--;
 	(*pos)++;
-	*length = wide_max - *pos;
+	*len = wide_max - *pos;
 }
 
 int	print_sprite_map(t_game	*game)
@@ -86,5 +86,7 @@ int	print_sprite_map(t_game	*game)
 
 void	print_steps(int steps)
 {
-	printf("steps made - %d\n", steps);
+	ft_putstr_fd("steps - ", 1);
+	ft_putnbr_fd(steps, 1);
+	ft_putchar_fd('\n', 1);
 }

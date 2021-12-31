@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 19:35:00 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/29 19:37:21 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/31 17:23:44 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ int	game_exit(int exit_code, t_game *game)
 			free_items(game->sprites, game->mlx);
 		free(game);
 	}
-	printf("Game Over! Exit code %d\n", exit_code);
-	exit (0);
+	exit (exit_code);
 }

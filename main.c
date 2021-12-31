@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:47:32 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/30 07:04:42 by nmordeka         ###   ########.fr       */
+/*   Updated: 2021/12/30 21:24:02 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int	main(int argc, char **argv)
 	map = read_map(fd);
 	close(fd);
 	if (!map)
-		error_exit("Problem with end of map or with memory allocation.");
+		error_exit("Problem with end of map");
 	game_go(map);
 }
