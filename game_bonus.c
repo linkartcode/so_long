@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   game_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 19:42:17 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/01/03 12:42:06 by nmordeka         ###   ########.fr       */
+/*   Created: 2021/12/31 22:45:49 by nmordeka          #+#    #+#             */
+/*   Updated: 2022/01/03 17:19:37 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int	game_over(t_map *map)
 {
@@ -52,7 +52,7 @@ static int	key_hook(int key, t_game *game)
 	{
 		if (player_move(key, game->map))
 		{
-			print_steps(++game->steps);
+			game->steps++;
 			if (game_over(game->map))
 				game_exit(0, game);
 		}

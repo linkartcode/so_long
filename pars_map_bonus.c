@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pars_map.c                                         :+:      :+:    :+:   */
+/*   pars_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 00:15:00 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/01/02 20:16:37 by nmordeka         ###   ########.fr       */
+/*   Created: 2021/12/31 22:51:52 by nmordeka          #+#    #+#             */
+/*   Updated: 2022/01/02 20:29:22 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static char	**get_mapchars(int fd)
 {

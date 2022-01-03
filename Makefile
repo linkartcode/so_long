@@ -6,20 +6,26 @@
 #    By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 22:47:06 by nmordeka          #+#    #+#              #
-#    Updated: 2021/12/31 16:39:45 by nmordeka         ###   ########.fr        #
+#    Updated: 2022/01/03 18:06:29 by nmordeka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
-LIBFT 		= libft.a
+NAME_B		= so_long_bonus
 #
+LIBFT 		= libft.a
 LIBS_PATH	= ./lib
 #
 SRCS		= 	main.c		check_map.c		pars_map.c		sprite_tools.c \
 				game.c		exit_tools.c	move_tools.c 	print_tools.c 
+SRCS_B		=	main_bonus.c			check_map_bonus.c		pars_map_bonus.c \
+				sprite_tools_bonus.c	game_bonus.c			exit_tools_bonus.c \
+				move_tools_bonus.c 		print_tools_bonus.c 
 #
 HEADER		=	so_long.h
+HEADER_B	=	so_long_bonus.h
 OBJ			=	$(patsubst %.c, %.o, $(SRCS))
+OBJ_B		=	$(patsubst %.c, %.o, $(SRCS_B))
 #
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror -I.
@@ -38,18 +44,24 @@ $(LIBS_PATH)/$(LIBFT) : force
 #
 force : ;
 #
-%.o : %.c $(HEADER)
+$(filter %.o,$(OBJ)): %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 #
-bonus : all
+bonus : $(NAME_B)
+#
+$(NAME_B) : $(LIBS_PATH)/$(LIBFT) $(OBJ_B)
+	$(CC) -L$(LIBS_PATH) -lft $(LMX) -o $@ $(OBJ_B)
+#
+$(filter %.o,$(OBJ_B)): %.o: %.c $(HEADER_B)
+	$(CC) $(CFLAGS) -c $< -o $@
 #
 clean :
 	$(MAKE) -C $(LIBS_PATH)/ clean
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(OBJ_B)
 #
 fclean	:	clean
 	$(MAKE) -C $(LIBS_PATH)/ fclean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_B)
 #
 re	:	fclean all
 #

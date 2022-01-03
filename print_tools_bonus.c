@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_tools.c                                      :+:      :+:    :+:   */
+/*   print_tools_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/30 06:43:29 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/01/03 13:07:33 by nmordeka         ###   ########.fr       */
+/*   Created: 2021/12/31 22:53:27 by nmordeka          #+#    #+#             */
+/*   Updated: 2022/01/03 18:00:31 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
+
+static void	print_steps_bonus(t_game *game)
+{
+	char	*step_str;
+
+	step_str = ft_itoa(game->steps);
+	if (step_str)
+	{
+		mlx_string_put(game->mlx, game->win, IMG_SIZE - 16, (IMG_SIZE / 3), \
+			0xffffffff, "STEPS :");
+		mlx_string_put(game->mlx, game->win, IMG_SIZE * 2 - 16, \
+			(IMG_SIZE / 3), 0xffffffff, step_str);
+		free(step_str);
+	}
+}
 
 static void	*get_img_ptr(char ch, t_game *game)
 {
@@ -48,6 +63,7 @@ static void	print_win(t_rect win, t_game *game)
 				x * IMG_SIZE, y * IMG_SIZE);
 		}
 	}
+	print_steps_bonus(game);
 }
 
 static void	set_win_pos(size_t *pos, size_t *len, size_t p_pos, size_t w_wide)
@@ -82,11 +98,4 @@ int	print_sprite_map(t_game	*game)
 		set_win_pos(&win.base.y, &win.h, game->map->player.y, w_max.y);
 	print_win(win, game);
 	return (0);
-}
-
-void	print_steps(int steps)
-{
-	ft_putstr_fd("steps - ", 1);
-	ft_putnbr_fd(steps, 1);
-	ft_putchar_fd('\n', 1);
 }

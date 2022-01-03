@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:37:01 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/31 22:58:02 by nmordeka         ###   ########.fr       */
+/*   Created: 2021/12/31 22:58:23 by nmordeka          #+#    #+#             */
+/*   Updated: 2022/01/02 21:02:18 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "./lib/libft.h"
 # include <mlx.h>
@@ -100,6 +100,5 @@ t_items	*read_sprites(t_game *game);
 int		player_move(int key, t_map *map);
 void	game_go(t_map *map);
 int		print_sprite_map(t_game	*game);
-void	print_steps(int steps);
 
 #endif
