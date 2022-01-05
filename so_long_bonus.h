@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 22:58:23 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/01/02 21:02:18 by nmordeka         ###   ########.fr       */
+/*   Updated: 2022/01/05 19:34:58 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	error_exit(char	*err_message);
 int		game_exit(int exit_code, t_game *game);
 t_items	*read_sprites(t_game *game);
 int		player_move(int key, t_map *map);
-void	game_go(t_map *map);
+int		not_ber_ext(char *filename);
 int		print_sprite_map(t_game	*game);
 
 #endif

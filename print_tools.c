@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 06:43:29 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/01/03 13:07:33 by nmordeka         ###   ########.fr       */
+/*   Updated: 2022/01/05 19:15:57 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	print_win(t_rect win, t_game *game)
 				x * IMG_SIZE, y * IMG_SIZE);
 		}
 	}
+	return ;
 }
 
 static void	set_win_pos(size_t *pos, size_t *len, size_t p_pos, size_t w_wide)

@@ -6,31 +6,71 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:47:32 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/01/02 20:21:00 by nmordeka         ###   ########.fr       */
+/*   Updated: 2022/01/05 19:08:45 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	not_ber_ext(char *filename)
+static int	game_over(t_map *map)
 {
-	char	*ext;
-	int		result;
+	if (map->items_num == 0 && (map->player.x == map->exit.x) && \
+		(map->player.y == map->exit.y))
+		return (FT_TRUE);
+	return (FT_FALSE);
+}
 
-	if (!filename || ft_strlen(filename) < 5)
-		return (FT_TRUE);
-	ext = ft_substr(filename, ft_strlen(filename) - 4, 4);
-	if (!ext)
-		return (FT_TRUE);
-	result = ft_strncmp(ext, ".ber", 4);
-	free(ext);
-	return (result);
+static t_game	*game_init(t_map *map)
+{
+	t_game	*game;
+
+	game = malloc(sizeof(t_game));
+	if (!game)
+	{
+		free_map(map);
+		error_exit("No enought mamory for game!");
+	}
+	game->map = map;
+	game->steps = 0;
+	game->mlx = mlx_init();
+	if (!game->mlx)
+		game_exit(1, game);
+	game->win = mlx_new_window(game->mlx, WIN_W, WIN_H, "so_long");
+	if (!game->win)
+		game_exit(2, game);
+	game->sprites = read_sprites(game);
+	if (!game->sprites)
+		game_exit(3, game);
+	return (game);
+}
+
+static int	key_hook(int key, t_game *game)
+{
+	if (key == KEY_ESC)
+		game_exit(10, game);
+	if (key == KEY_DOWN || key == KEY_UP || key == KEY_LEFT || key == KEY_RIGHT)
+	{
+		if (player_move(key, game->map))
+		{
+			print_steps(++game->steps);
+			if (game_over(game->map))
+				game_exit(0, game);
+		}
+	}
+	return (0);
+}
+
+static int	close_win_hook(t_game *game)
+{
+	game_exit(11, game);
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
 	int		fd;
 	t_map	*map;
+	t_game	*game;
 
 	if (argc != 2)
 		error_exit ("Program accept only one *.ber parameter");
@@ -43,5 +83,10 @@ int	main(int argc, char **argv)
 	close(fd);
 	if (!map)
 		error_exit("Empty line(s) in map");
-	game_go(map);
+	game = game_init(map);
+	mlx_hook(game->win, 17, 0, close_win_hook, game);
+	mlx_key_hook(game->win, key_hook, game);
+	mlx_loop_hook(game->mlx, print_sprite_map, game);
+	mlx_loop(game->mlx);
+	return (0);
 }

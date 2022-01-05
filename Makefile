@@ -6,7 +6,7 @@
 #    By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 22:47:06 by nmordeka          #+#    #+#              #
-#    Updated: 2022/01/03 18:06:29 by nmordeka         ###   ########.fr        #
+#    Updated: 2022/01/05 19:38:37 by nmordeka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ LIBFT 		= libft.a
 LIBS_PATH	= ./lib
 #
 SRCS		= 	main.c		check_map.c		pars_map.c		sprite_tools.c \
-				game.c		exit_tools.c	move_tools.c 	print_tools.c 
+				exit_tools.c	move_tools.c 	print_tools.c 
 SRCS_B		=	main_bonus.c			check_map_bonus.c		pars_map_bonus.c \
-				sprite_tools_bonus.c	game_bonus.c			exit_tools_bonus.c \
-				move_tools_bonus.c 		print_tools_bonus.c 
+				sprite_tools_bonus.c	exit_tools_bonus.c 		move_tools_bonus.c \
+				print_tools_bonus.c 
 #
 HEADER		=	so_long.h
 HEADER_B	=	so_long_bonus.h

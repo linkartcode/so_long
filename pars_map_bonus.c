@@ -6,11 +6,26 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 22:51:52 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/01/02 20:29:22 by nmordeka         ###   ########.fr       */
+/*   Updated: 2022/01/05 19:34:20 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+int	not_ber_ext(char *filename)
+{
+	char	*ext;
+	int		result;
+
+	if (!filename || ft_strlen(filename) < 5)
+		return (FT_TRUE);
+	ext = ft_substr(filename, ft_strlen(filename) - 4, 4);
+	if (!ext)
+		return (FT_TRUE);
+	result = ft_strncmp(ext, ".ber", 4);
+	free(ext);
+	return (result);
+}
 
 static char	**get_mapchars(int fd)
 {
