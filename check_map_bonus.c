@@ -6,7 +6,7 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 22:43:25 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/31 23:20:41 by nmordeka         ###   ########.fr       */
+/*   Updated: 2022/01/04 11:36:55 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	check_symbols(t_map *map)
 		else if (map->map_chars[y][x] == EXIT_POS)
 			exits++;
 		else if (!(map->map_chars[y][x] == '1' || map->map_chars[y][x] == '0' \
-			|| map->map_chars[y][x] == COLLECT || map->map_chars[y][x] == 0))
+			|| map->map_chars[y][x] == COLLECT))
 			return (ERR_SYMBOLS);
 	}
 	if (starts != 1)
