@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlstclear.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 07:44:13 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/17 08:42:23 by nmordeka         ###   ########.fr       */
+/*   Created: 2021/10/10 09:53:03 by nmordeka          #+#    #+#             */
+/*   Updated: 2022/04/27 09:43:28 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_dlstclear(t_dlist **dlst, void (*del)(void *))
+void	ft_bzero(void *s, size_t n)
 {
-	if (!*dlst)
-		return ;
-	while (*dlst)
-		ft_dlstdelone(&(*dlst), del);
+	char	*dest;
+	size_t	i;
+
+	dest = s;
+	i = -1;
+	while (++i < n)
+		dest[i] = 0;
 }

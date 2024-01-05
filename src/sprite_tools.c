@@ -1,15 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sprite_tools.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 19:38:15 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/12/29 19:38:21 by nmordeka         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+/* 
+	Sprites tools module of the game So long author Roman Protchev v 2.0
+	contains functions:
+	-- static (local):
+		free_sprite - free memory of sprite
+		sprite_init - init specific sprite
+	-- global:
+		free_items - free memory from all sprites of map
+		read_sprites - inits all sprite of map
+*/
 #include "so_long.h"
 
 static void	free_sprite(t_sprite *sprite, void *mlx)
@@ -60,7 +58,7 @@ t_items	*read_sprites(t_game *game)
 	items->empty = sprite_init(EMPTY, "image_xpm/empty_64.xpm", game);
 	items->wall = sprite_init(WALL, "image_xpm/wall_64.xpm", game);
 	items->player = sprite_init(START_POS, "image_xpm/dolphin_64.xpm", game);
-	items->exit = sprite_init(EXIT_POS, "image_xpm/exit_64.xpm", game);
+	items->exit = sprite_init(EXIT_CLOSE, "image_xpm/exit_64.xpm", game);
 	items->collect = sprite_init(COLLECT, "image_xpm/collect_64.xpm", game);
 	if (!items->collect || !items->wall || !items->exit \
 		|| !items->empty || !items->player)

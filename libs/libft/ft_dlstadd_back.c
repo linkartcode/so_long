@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_dlstadd_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/10 09:53:03 by nmordeka          #+#    #+#             */
-/*   Updated: 2021/10/10 09:53:03 by nmordeka         ###   ########.fr       */
+/*   Created: 2021/12/17 08:08:54 by nmordeka          #+#    #+#             */
+/*   Updated: 2022/03/27 14:10:11 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_dlstadd_back(t_dlist **dlst, t_dlist *new)
 {
-	char	*dest;
-	size_t	i;
+	t_dlist	*last;
 
-	dest = s;
-	i = 0;
-	while (i < n)
+	if (dlst)
 	{
-		*dest = 0;
-		dest++;
-		i++;
+		if (*dlst && new)
+		{
+			last = (*dlst);
+			while (last->next)
+				last = last->next;
+			last->next = new;
+			new->prev = last;
+		}
+		else
+			*dlst = new;
 	}
 }
